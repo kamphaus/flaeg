@@ -177,6 +177,11 @@ func (d *Duration) UnmarshalText(text []byte) error {
 	return d.Set(string(text))
 }
 
+// MarshalText serializes the given duration
+func (d *Duration) MarshalText() (text []byte, err error) {
+	return []byte(d.String()), nil
+}
+
 // -- time.Time Value
 type timeValue time.Time
 
